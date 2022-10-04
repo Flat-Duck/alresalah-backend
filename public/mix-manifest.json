@@ -1,0 +1,12 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/shop/app.css": "/css/shop/app.css",
+    "/css/shop/vendor.css": "/css/shop/vendor.css",
+    "/js/shop/app.js": "/js/shop/app.js",
+    "/js/shop/vendor.js": "/js/shop/vendor.js",
+    "/css/admin/app.css": "/css/admin/app.css",
+    "/css/admin/vendor.css": "/css/admin/vendor.css",
+    "/js/admin/app.js": "/js/admin/app.js",
+    "/js/admin/vendor.js": "/js/admin/vendor.js"
+}
