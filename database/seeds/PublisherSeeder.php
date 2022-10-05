@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Publisher;
+use App\Publisher;
 use Illuminate\Database\Seeder;
 
 class PublisherSeeder extends Seeder
