@@ -15,20 +15,20 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('cover_image');
-            $table->string('title');
-            $table->string('ISBN');
-            $table->string('edition');
-            $table->string('format');
-            $table->unsignedBigInteger('level_id');
-            $table->string('Author');
-            $table->integer('quantity');
-            $table->decimal('price');
-            $table->decimal('sale_price');
-            $table->text('description');
-            $table->boolean('featured');
-            $table->boolean('on_sale');
-            $table->unsignedBigInteger('publisher_id');
+            $table->string('cover_image')->nullable();
+            $table->string('title')->nullable();
+            $table->string('ISBN')->nullable();
+            $table->string('edition')->nullable();
+            $table->string('format')->default('Paperback');
+            $table->unsignedBigInteger('level_id')->nullable();
+            $table->string('Author')->nullable();
+            $table->integer('quantity')->default(0);
+            $table->decimal('price')->default(0.0);
+            $table->decimal('sale_price')->default(0.0);
+            $table->text('description')->nullable();
+            $table->boolean('featured')->default(false);
+            $table->boolean('on_sale')->default(false);
+            $table->unsignedBigInteger('publisher_id')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
