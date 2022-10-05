@@ -44,9 +44,9 @@
                                     <a href="{{ route('admin.levels.edit', $level) }}"  class="btn btn-info">
                                         <i class="fa fa-edit"></i>                                        
                                     </a>
-                                    <a href="{{ route('admin.levels.show', $level) }}" class="btn btn-warning">
+                                    {{-- <a href="{{ route('admin.levels.show', $level) }}" class="btn btn-warning">
                                         <i class="fa fa-eye"></i>                                        
-                                    </a>
+                                    </a> --}}
                                     <form action="{{ route('admin.levels.destroy', $level) }}" method="POST" class="inline pointer inline pointer btn btn-danger">
                                         @csrf
                                         @method('DELETE')

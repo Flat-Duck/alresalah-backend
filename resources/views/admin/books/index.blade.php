@@ -6,9 +6,9 @@
         <div class="box">
             <div class="box-header with-border">
                 <h3 class="box-title">Books</h3>
-                <a class="pull-right btn btn-sm btn-info" href="{{ route('admin.books.importing') }}">
+                {{-- <a class="pull-right btn btn-sm btn-info" href="{{ route('admin.books.importing') }}">
                     Import
-                </a>
+                </a> --}}
                 <a class="pull-right btn btn-sm btn-primary" href="{{ route('admin.books.create') }}">
                     Add New Book
                 </a>
@@ -65,9 +65,9 @@
                                     <a href="{{ route('admin.books.edit', $book) }}"  class="btn btn-info">
                                         <i class="fa fa-edit"></i>                                        
                                     </a>
-                                    <a href="{{ route('admin.books.show', $book) }}" class="btn btn-warning">
+                                    {{-- <a href="{{ route('admin.books.show', $book) }}" class="btn btn-warning">
                                         <i class="fa fa-eye"></i>                                        
-                                    </a>
+                                    </a> --}}
                                     <form action="{{ route('admin.books.destroy', $book) }}" method="POST" class="inline pointer inline pointer btn btn-danger">
                                         @csrf
                                         @method('DELETE')

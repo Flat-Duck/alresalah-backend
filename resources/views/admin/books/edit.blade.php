@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('admin.layouts.app', ['page' => 'books'])
+
+@section('title', 'Update Book')
+
 @section('content')
 <div class="row">
     <div class="col-xs-12">
@@ -6,7 +9,7 @@
             <div class="box-header with-border">
                 <h3 class="box-title">Update Book</h3>
             </div>
-            <form method="PUT" enctype="multipart/form-data" action="{{ route('admin.books.update', $book) }}"" class="mt-4">
+            <form method="PUT" enctype="multipart/form-data" action="{{ route('admin.books.update', $book) }}" class="mt-4">
                 @csrf
                 @include('admin.books.form-inputs')
                 <div class="box-footer">

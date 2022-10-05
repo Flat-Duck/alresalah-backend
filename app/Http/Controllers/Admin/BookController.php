@@ -83,14 +83,26 @@ class BookController extends Controller
             $validated['cover_image'] = $request
                 ->file('cover_image')
                 ->store('public');
+        }else{
+            $filename = $request->ISBN.".jpg";       
+            $url = "https://pictures.abebooks.com/isbn/".$request->ISBN."-us.jpg";
+            $contents = @file_get_contents($url);             
+            if(!$contents){                            
+                $filename = "defualt.jpg";
+            }else{
+                Storage::disk('local')->put('public/'.$request->ISBN.'.jpg', $contents);
+            }
+            $validated['cover_image'] = $filename;
+            $validated['level_id'] = 1;
+            $validated['featured'] = 1;
+            $validated['on_sale'] = 1;
         }
-
         $book = Book::create($validated);
         
-        GetBooksCoverImages::dispatch($book);
+        //GetBooksCoverImages::dispatch($book);
         
         return redirect()
-            ->route('admin.books.edit', $book)
+            ->route('admin.books.index')
             ->withSuccess(__('crud.common.created'));
     }
 
@@ -101,7 +113,9 @@ class BookController extends Controller
      */
     public function show(Request $request, Book $book)
     {
+        //dd($book);
         //$this->authorize('view', $book);
+        $book->getImageUrlByISBN();
 
         return view('admin.books.show', compact('book'));
     }

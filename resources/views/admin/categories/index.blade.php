@@ -44,9 +44,9 @@
                                     <a href="{{ route('admin.categories.edit', $category) }}"  class="btn btn-info">
                                         <i class="fa fa-edit"></i>                                        
                                     </a>
-                                    <a href="{{ route('admin.categories.show', $category) }}" class="btn btn-warning">
+                                    {{-- <a href="{{ route('admin.categories.show', $category) }}" class="btn btn-warning">
                                         <i class="fa fa-eye"></i>                                        
-                                    </a>
+                                    </a> --}}
                                     <form action="{{ route('admin.categories.destroy', $category) }}" method="POST" class="inline pointer inline pointer btn btn-danger">
                                         @csrf
                                         @method('DELETE')

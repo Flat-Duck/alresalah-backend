@@ -99,6 +99,12 @@
                         </a>
                     </li>
 
+                    <li {{ $page == 'books' ? ' class=active' : '' }}>
+                        <a href="{{ route('admin.books.index') }}">
+                            <i class="fa fa-book"></i>
+                            <span>Books</span>
+                        </a>
+                    </li>
                     
                     <li {{ $page == 'users' ? ' class=active' : '' }}>
                         <a href="{{ route('admin.users.index') }}">

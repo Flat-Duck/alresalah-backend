@@ -16,23 +16,27 @@ class BooksImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Book([
-            
-            'level_id' => Level::firstOrCreate(['name' => $row[3]])->id,
-            'title'=> $row[4],
-            'ISBN'=> $row[5],
-            'edition'=> $row[6],
-            'format'=> $row[7],
-            'publisher_id'=> Publisher::firstOrCreate(['Name' => $row[8]])->id,//$row[0],,//$row[0],
-            'Author'=> $row[9],
-            'quantity'=> $row[10],
-            'price'=> $row[11],
-            'sale_price'=> $row[12],
-            'description'=> $row[13],
-            'featured'=> $row[14],
-            'cover_image'=> Book::getImageUrlByISBN($row[5]),
-            'on_sale'=> 1,
+        // if($row[3] == ""){
+        //     return null;
+        // }
+        $level = Level::firstOrCreate(['name' => $row[3]])->id;
+        $book = new Book();
+        $book->level_id = $level;
+        $book->title = $row[4];
+        $book->ISBN = $row[5];
+        $book->edition = $row[6];
+        $book->format = $row[7];
+        $book->publisher_id = Publisher::firstOrCreate(['Name' => $row[8]])->id;//$row[0],,//$row[0];
+        $book->Author = $row[9];
+        $book->quantity = $row[10];
+        $book->price = $row[11];
+        $book->sale_price = $row[12];
+        $book->description = $row[13];
+        $book->featured = 1;//$row[14];
+        $book->cover_image = "";
+        $book->on_sale = 1;
 
-        ]);
+    //    dd($book);
+        return $book;
     }
 }

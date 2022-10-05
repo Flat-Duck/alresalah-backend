@@ -47,7 +47,7 @@
     </div>
 
     <div class="form-group">
-9        <label for="featured">
+        <label for="featured">
             <input type="checkbox" name="featured" :checked="old('featured', ($editing ? $book->featured : 0))" id="featured"/>
             Featured
         </label>
