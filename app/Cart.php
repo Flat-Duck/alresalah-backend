@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
-use App\Models\Scopes\Searchable;
+use App\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model

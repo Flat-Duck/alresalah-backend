@@ -5,12 +5,12 @@
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
-use App\Models\Order;
+use App\Order;
 
 $factory->define(Order::class, function (Faker $faker) {
     return [
         'number' => $faker->randomNumber,
         'total' => $faker->randomFloat(2, 0, 9999),
-        'user_id' => factory(App\Models\User::class),
+        'user_id' => factory(App\User::class),
     ];
 });

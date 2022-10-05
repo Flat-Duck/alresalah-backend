@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Category;
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryResource;
@@ -46,7 +46,7 @@ class CategoryController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Category $category
+     * @param \App\Category $category
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Category $category)
@@ -58,7 +58,7 @@ class CategoryController extends Controller
 
     /**
      * @param \App\Http\Requests\CategoryUpdateRequest $request
-     * @param \App\Models\Category $category
+     * @param \App\Category $category
      * @return \Illuminate\Http\Response
      */
     public function update(CategoryUpdateRequest $request, Category $category)
@@ -74,7 +74,7 @@ class CategoryController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Category $category
+     * @param \App\Category $category
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Category $category)

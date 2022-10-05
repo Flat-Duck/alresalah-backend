@@ -1,8 +1,8 @@
 <?php
 namespace App\Http\Controllers\Api;
 
-use App\Models\Tag;
-use App\Models\Book;
+use App\Tag;
+use App\Book;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BookCollection;
@@ -11,7 +11,7 @@ class TagBooksController extends Controller
 {
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Tag $tag
+     * @param \App\Tag $tag
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, Tag $tag)
@@ -31,8 +31,8 @@ class TagBooksController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Tag $tag
-     * @param \App\Models\Book $book
+     * @param \App\Tag $tag
+     * @param \App\Book $book
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Tag $tag, Book $book)
@@ -46,8 +46,8 @@ class TagBooksController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Tag $tag
-     * @param \App\Models\Book $book
+     * @param \App\Tag $tag
+     * @param \App\Book $book
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Tag $tag, Book $book)

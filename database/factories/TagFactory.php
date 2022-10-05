@@ -5,7 +5,7 @@
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
-use App\Models\Tag;
+use App\Tag;
 
 $factory->define(Tag::class, function (Faker $faker) {
     return [

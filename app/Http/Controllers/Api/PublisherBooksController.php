@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Publisher;
+use App\Publisher;
 use Illuminate\Http\Request;
 use App\Http\Resources\BookResource;
 use App\Http\Controllers\Controller;
@@ -12,7 +12,7 @@ class PublisherBooksController extends Controller
 {
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Publisher $publisher
+     * @param \App\Publisher $publisher
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, Publisher $publisher)
@@ -32,7 +32,7 @@ class PublisherBooksController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Publisher $publisher
+     * @param \App\Publisher $publisher
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Publisher $publisher)

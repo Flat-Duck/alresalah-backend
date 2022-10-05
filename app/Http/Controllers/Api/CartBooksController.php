@@ -1,8 +1,8 @@
 <?php
 namespace App\Http\Controllers\Api;
 
-use App\Models\Cart;
-use App\Models\Book;
+use App\Cart;
+use App\Book;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BookCollection;
@@ -11,7 +11,7 @@ class CartBooksController extends Controller
 {
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Cart $cart
+     * @param \App\Cart $cart
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, Cart $cart)
@@ -31,8 +31,8 @@ class CartBooksController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Cart $cart
-     * @param \App\Models\Book $book
+     * @param \App\Cart $cart
+     * @param \App\Book $book
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Cart $cart, Book $book)
@@ -46,8 +46,8 @@ class CartBooksController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Cart $cart
-     * @param \App\Models\Book $book
+     * @param \App\Cart $cart
+     * @param \App\Book $book
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Cart $cart, Book $book)

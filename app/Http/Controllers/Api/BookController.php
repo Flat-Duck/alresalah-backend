@@ -52,7 +52,7 @@ class BookController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Book $book
+     * @param \App\Book $book
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Book $book)
@@ -64,7 +64,7 @@ class BookController extends Controller
 
     /**
      * @param \App\Http\Requests\BookUpdateRequest $request
-     * @param \App\Models\Book $book
+     * @param \App\Book $book
      * @return \Illuminate\Http\Response
      */
     public function update(BookUpdateRequest $request, Book $book)
@@ -90,7 +90,7 @@ class BookController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Book $book
+     * @param \App\Book $book
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Book $book)

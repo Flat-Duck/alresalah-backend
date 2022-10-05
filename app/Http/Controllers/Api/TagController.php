@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Tag;
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Resources\TagResource;
 use App\Http\Controllers\Controller;
@@ -46,7 +46,7 @@ class TagController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Tag $tag
+     * @param \App\Tag $tag
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Tag $tag)
@@ -58,7 +58,7 @@ class TagController extends Controller
 
     /**
      * @param \App\Http\Requests\TagUpdateRequest $request
-     * @param \App\Models\Tag $tag
+     * @param \App\Tag $tag
      * @return \Illuminate\Http\Response
      */
     public function update(TagUpdateRequest $request, Tag $tag)
@@ -74,7 +74,7 @@ class TagController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Tag $tag
+     * @param \App\Tag $tag
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Tag $tag)

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\User;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Resources\CartResource;
 use App\Http\Controllers\Controller;
@@ -12,7 +12,7 @@ class UserCartsController extends Controller
 {
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\User $user
+     * @param \App\User $user
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, User $user)
@@ -32,7 +32,7 @@ class UserCartsController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\User $user
+     * @param \App\User $user
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, User $user)

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Order;
+use App\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderResource;
@@ -46,7 +46,7 @@ class OrderController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Order $order
+     * @param \App\Order $order
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Order $order)
@@ -58,7 +58,7 @@ class OrderController extends Controller
 
     /**
      * @param \App\Http\Requests\OrderUpdateRequest $request
-     * @param \App\Models\Order $order
+     * @param \App\Order $order
      * @return \Illuminate\Http\Response
      */
     public function update(OrderUpdateRequest $request, Order $order)
@@ -74,7 +74,7 @@ class OrderController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Order $order
+     * @param \App\Order $order
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Order $order)
