@@ -26,6 +26,13 @@ class BookController extends Controller
 
     public function importing()
     {        
+      //  if($number == 1){
+        //    $url = "https://covers.openlibrary.org/b/isbn/".$isbn."-L.jpg";
+        //}else if($number == 2){
+          //  $url = "https://pictures.abebooks.com/isbn/9781107476738-us.jpg";
+        //}
+        //$co = @file_get_contents($url);
+        //dd(strlen($co));
         return view('admin.books.import');
     }
     
@@ -66,8 +73,9 @@ class BookController extends Controller
 
         $levels = Level::pluck('name', 'id');
         $publishers = Publisher::pluck('Name', 'id');
-
-        return view('admin.books.create', compact('levels', 'publishers'));
+        $tags = Tag::all();
+        return view('admin.books.create', compact('levels', 'tags', 'publishers'));
+        
     }
 
     /**
@@ -130,10 +138,16 @@ class BookController extends Controller
         //$this->authorize('update', $book);
 
         $levels = Level::pluck('name', 'id');
-        $publishers = Publisher::pluck('Name', 'id');
+        $publishers = Publisher::all();
+        $tags = Tag::all();
 
-        $tags = Tag::get();
+        //$tags = Tag::pluck('Name', 'id');
+        //dd($publishers->first()->id);
 
+
+        $book->tags = $book->tags->pluck('id')->toArray();
+
+      
         return view(
             'admin.books.edit',
             compact('book', 'levels', 'publishers', 'tags')

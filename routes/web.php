@@ -58,14 +58,13 @@ Route::name('admin.')->prefix('admin')->namespace('Admin')->group(function () {
 });
 Auth::routes();
 
-Route::get('/home', 'Admin\HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/bo', 'BookController@index')->name('books');
 
-Route::prefix('/')->name('shop.')
-    ->middleware('auth:web')
+Route::prefix('/')->name('shop.')    
     ->group(function () {
-        Route::resource('books', Shop\BookController::class);
+        Route::resource('books', Shop\BookController::class);     
         Route::GET('profile', 'Shop\UserController@profile')->name('books.profile');
      
     });

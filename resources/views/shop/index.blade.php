@@ -3,14 +3,14 @@
 <div class="col-lg-12">
        <div class="iq-card-transparent mb-0">
           <div class="d-block text-center">
-             <h2 class="mb-3">Search by Book Name</h2>    
+             <h2 class="mb-3">Search</h2>
              <div class="w-100 iq-search-filter">
                 <ul class="list-inline p-0 m-0 row justify-content-center search-menu-options">      
                    <li class="search-menu-opt">
                       <div class="iq-search-bar search-book d-flex align-items-center">
                          <form  class="searchbox">
                             
-                            <input id="indexSearch" name="search" placeholder="Searsh" value="{{ $search ?? '' }}" type="text" class="text search-input" spellcheck="false" data-ms-editor="true" autocomplete="off">
+                            <input id="indexSearch" name="search" placeholder="Search title, ISBN, author ... etc" value="{{ $search ?? '' }}" type="text" class="text search-input" spellcheck="false" data-ms-editor="true" autocomplete="off">
                             <a class="search-link" href="#"><i class="ri-search-line"></i></a>
                          </form>
                          <button type="submit" class="btn btn-primary search-data ml-2">Search</button>

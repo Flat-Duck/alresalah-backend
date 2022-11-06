@@ -52,14 +52,15 @@
                       </div>
                       <span class="text-dark mb-4 pb-4 iq-border-bottom d-block">{{$book->description}}</span>
                       <div class="text-primary mb-4">Author: <span class="text-body">{{$book->Author}}</span></div>
+                      <div class="text-primary mb-4">Publisher: <span class="text-body">{{$book->publisher->name}}</span></div>
+                      <div class="text-primary mb-4">ISBN: <span class="text-body">{{$book->ISBN}}</span></div> 
                       <div class="mb-4 d-flex align-items-center">                                       
                          <a href="#" class="btn btn-primary view-more mr-2">Add To Cart</a>
-                         <a href="book-pdf.html" class="btn btn-primary view-more mr-2">Read Sample</a>
                       </div>
                       <div class="mb-3">
                          <a href="#" class="text-body text-center"><span class="avatar-30 rounded-circle bg-primary d-inline-block mr-2"><i class="ri-heart-fill"></i></span><span>Add to Wishlist</span></a>
                       </div>
-                      <div class="iq-social d-flex align-items-center">
+                      {{-- <div class="iq-social d-flex align-items-center">
                          <h5 class="mr-2">Share:</h5>
                          <ul class="list-inline d-flex p-0 mb-0 align-items-center">
                             <li>
@@ -75,7 +76,7 @@
                                <a href="#" class="avatar-40 rounded-circle bg-primary pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
                             </li>
                          </ul>
-                      </div>
+                      </div> --}}
                    </div>
                 </div>
              </div>

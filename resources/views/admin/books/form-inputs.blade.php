@@ -58,30 +58,40 @@
             On Sale
         </label>
     </div>
-
-</div>
-
-    {{-- <x-inputs.group class="col-sm-12">    
-
-
-    <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="level_id" label="Level" required>
+    <div class="form-group">
+        <label for="level_id">Level</label>
+        <select class="form-control select2" name="level_id" id="level_id">
             @php $selected = old('level_id', ($editing ? $book->level_id : '')) @endphp
             <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Level</option>
             @foreach($levels as $value => $label)
-            <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
+                <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
             @endforeach
-        </x-inputs.select>
-    </x-inputs.group>
-    <x-inputs.group class="col-sm-12">
-        <x-inputs.select name="publisher_id" label="Publisher" required>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="publisher_id">Publisher</label>
+        <select class="form-control select2" name="publisher_id" id="publisher_id">
             @php $selected = old('publisher_id', ($editing ? $book->publisher_id : '')) @endphp
             <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Publisher</option>
             @foreach($publishers as $value => $label)
-            <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
+                <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
             @endforeach
-        </x-inputs.select>
-    </x-inputs.group>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="tags">Tags</label>
+        <select class="form-control select2" name="tags[]" multiple id="tags" data-placeholder="Select a State">
+            @foreach ($tags as $tag)
+            @if ($editing)
+                @php $selected = in_array($tag->id, $book->tags) ? 'selected' : ''  @endphp            
+            @endif
+                <option value="{{ $tag->id }}" {{$selected}}>{{ $tag->name }} </option>               
+            @endforeach
+        </select>
+    </div>
+</div>
+{{-- 
 
     <x-inputs.group class="col-sm-12">
         <div
@@ -142,4 +152,4 @@
         @endforeach
     </div>
     @endif
-</div> --}}
+</div> --}} 

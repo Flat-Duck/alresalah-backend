@@ -17,9 +17,9 @@
           </div>
           <nav aria-label="breadcrumb">
             <ul class="breadcrumb">
-               <li class="breadcrumb-item"><a href="#"><i class="ri-home-4-line mr-1 float-left"></i>Home</a></li>
-               <li class="breadcrumb-item"><a href="#">Library</a></li>
-               <li class="breadcrumb-item active" aria-current="page">Data</li>
+               <li class="breadcrumb-item"><a href="/"><i class="ri-home-4-line mr-1 float-left"></i>Home</a></li>
+               <li class="breadcrumb-item"><a href="/shop">Shop</a></li>
+               <li class="breadcrumb-item active" aria-current="page">Books</li>
             </ul>
          </nav>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
@@ -89,6 +89,16 @@
                       </div>
                    </div>
                 </li> --}}
+                @guest    
+                <li class="line-height pt-3">
+                  <a href="/login" class="iq-waves-effect d-flex align-items-center">
+                     <img src="/images/login-logo.png" class="img-fluid rounded-circle mr-1" alt="Login">
+                     <div class="caption">
+                        <h6 class="mb-1 line-height">Login</h6>
+                     </div>
+                  </a>                  
+               </li>                          
+                @else
                 <li class="nav-item nav-icon dropdown">
                    <a href="#" class="search-toggle iq-waves-effect text-gray rounded">
                    <i class="ri-shopping-cart-2-line"></i>
@@ -135,7 +145,7 @@
                                <h5 class="mb-0 text-white line-height">Hello {{ Auth::user()->name }}</h5>
                                <span class="text-white font-size-12">Available</span>
                             </div>
-                            <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
+                            <a href="/profile" class="iq-sub-card iq-bg-primary-hover">
                                <div class="media align-items-center">
                                   <div class="rounded iq-card-icon iq-bg-primary">
                                      <i class="ri-file-user-line"></i>
@@ -147,13 +157,24 @@
                                </div>
                             </a>
 
-                            <div class="d-inline-block w-100 text-center p-3">
-                               <a class="bg-primary iq-sign-btn" href="sign-in.html" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
+                            <div class="d-inline-block w-100 text-center p-3">                               
+                              @guest                              
+                              @else
+                                 <a class="bg-primary iq-sign-btn" href="{{ route('logout') }}" role="button"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                       Sign out <i class="ri-login-box-line ml-2"></i>
+                                 </a>
+                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                 </form>
+                                    
+                              @endguest
                             </div>
                          </div>
                       </div>
                    </div>
                 </li>
+                @endguest
              </ul>
           </div>
        </nav>

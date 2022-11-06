@@ -28,7 +28,7 @@
                      <h4 class="mb-0">Alresalah Bookshop</h4>
                      <nav aria-label="breadcrumb">
                         <ul class="breadcrumb">
-                           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                           <li class="breadcrumb-item"><a href="/">Home</a></li>
                            <li class="breadcrumb-item active" aria-current="page">Blank Page</li>
                         </ul>
                      </nav>
@@ -190,7 +190,7 @@
                                     </a>
 
                                     <div class="d-inline-block w-100 text-center p-3">
-                                       <a class="bg-primary iq-sign-btn" href="sign-in.html" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
+                                       <a class="bg-primary iq-sign-btn" href="/login" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
                                     </div>
                                  </div>
                               </div>
@@ -240,7 +240,7 @@
                   </ul>
                </div>
                <div class="col-lg-6 text-right">
-                  Copyright 2020 <a href="#">Booksto</a> All Rights Reserved.
+                  Copyright 2020 <a href="#">Alresalah Bookshop</a> All Rights Reserved.
                </div>
             </div>
          </div>

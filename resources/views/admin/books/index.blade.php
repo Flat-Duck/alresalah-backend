@@ -6,9 +6,9 @@
         <div class="box">
             <div class="box-header with-border">
                 <h3 class="box-title">Books</h3>
-                {{-- <a class="pull-right btn btn-sm btn-info" href="{{ route('admin.books.importing') }}">
+                <a class="pull-right btn btn-sm btn-info" href="{{ route('admin.books.importing') }}">
                     Import
-                </a> --}}
+                </a>
                 <a class="pull-right btn btn-sm btn-primary" href="{{ route('admin.books.create') }}">
                     Add New Book
                 </a>

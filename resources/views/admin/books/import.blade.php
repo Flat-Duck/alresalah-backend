@@ -13,7 +13,8 @@
                 @csrf
                 <div class="form-group">
                     <label for="file">Upload Excel file</label>
-                    <input type="file" name="file"  class="form-control" id="file"  placeholder="Upload File" required/>
+                    <input type="file" name="file"  class="form-control" id="file"  placeholder="Upload File" required
+                    accept=".xlsx, .xls, .csv"/>
                 </div>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary"> Submit  <i class="fa fa-save"></i> </button>
