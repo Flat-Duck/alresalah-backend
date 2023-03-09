@@ -3,7 +3,7 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>{{ config('app.name', 'Alresalah Book Shop') }}</title>
+      <title>{{ config('app.name', 'Alresalah BookShop') }}</title>
       <link rel="shortcut icon" href="images/favicon.ico" />
       <link rel="stylesheet" href="{{ asset('css/shop/bootstrap.min.css') }}">
       <link rel="stylesheet" href="{{ asset('css/shop/typography.css') }}">

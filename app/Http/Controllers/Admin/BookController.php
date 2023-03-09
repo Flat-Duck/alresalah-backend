@@ -27,7 +27,7 @@ class BookController extends Controller
     public function importing()
     {        
       //  if($number == 1){
-        //    $url = "https://covers.openlibrary.org/b/isbn/".$isbn."-L.jpg";
+        //    $url = "https://covers.openlibrary.org/b/isbn/9781292396705-L.jpg";
         //}else if($number == 2){
           //  $url = "https://pictures.abebooks.com/isbn/9781107476738-us.jpg";
         //}
@@ -40,10 +40,12 @@ class BookController extends Controller
     {
 
        // dd(request()->all());
-        Excel::import(new BooksImport, request()->file('file'));
+       // Excel::import(new BooksImport, request()->file('file'));
+        $import = new BooksImport;
+        $import->import(request()->file('file'));
 
-        
-        return redirect('/')->with('success', 'All good!');
+       // dd($import->errors());
+        return redirect('/admin/books/importing')->withSuccess('success All good!');
     }
     /**
      * @param \Illuminate\Http\Request $request
@@ -123,7 +125,7 @@ class BookController extends Controller
     {
         //dd($book);
         //$this->authorize('view', $book);
-        $book->getImageUrlByISBN();
+       // $book->getImageUrlByISBN();
 
         return view('admin.books.show', compact('book'));
     }
