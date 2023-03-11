@@ -38,8 +38,18 @@
                    <div class="iq-card-body p-0">
                       <h3 class="mb-3">{{$book->title}}</h3>
                       <div class="price d-flex align-items-center font-weight-500 mb-2">
-                         <span class="font-size-20 pr-2 old-price">${{$book->price}}</span>
-                         <span class="font-size-24 text-dark">{{$book->sale_price}}</span>
+                        @if ($book->on_sale)
+                           <span class="font-size-20 pr-2 old-price">${{$book->price}}</span>
+                           <span class="font-size-24 text-dark">{{$book->sale_price}}</span>
+                           @else 
+                           <span class="font-size-24 text-dark">{{$book->price}}</span>
+                        @endif
+
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        <span>In Stock</span>
                       </div>
                       <div class="mb-3 d-block">
                          <span class="font-size-20 text-warning">
@@ -52,7 +62,7 @@
                       </div>
                       <span class="text-dark mb-4 pb-4 iq-border-bottom d-block">{{$book->description}}</span>
                       <div class="text-primary mb-4">Author: <span class="text-body">{{$book->Author}}</span></div>
-                      <div class="text-primary mb-4">Publisher: <span class="text-body">{{$book->publisher->name}}</span></div>
+                      <div class="text-primary mb-4">Publisher: <span class="text-body">{{$book->publisher->Name}}</span></div>
                       <div class="text-primary mb-4">ISBN: <span class="text-body">{{$book->ISBN}}</span></div> 
                       <div class="mb-4 d-flex align-items-center">                                       
                          <a href="#" class="btn btn-primary view-more mr-2">Add To Cart</a>

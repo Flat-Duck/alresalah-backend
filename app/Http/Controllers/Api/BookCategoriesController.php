@@ -1,8 +1,8 @@
 <?php
 namespace App\Http\Controllers\Api;
 
-use App\Book;
-use App\Category;
+use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryCollection;
@@ -11,7 +11,7 @@ class BookCategoriesController extends Controller
 {
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Book $book
+     * @param \App\Models\Book $book
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, Book $book)
@@ -31,8 +31,8 @@ class BookCategoriesController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Book $book
-     * @param \App\Category $category
+     * @param \App\Models\Book $book
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Book $book, Category $category)
@@ -46,8 +46,8 @@ class BookCategoriesController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Book $book
-     * @param \App\Category $category
+     * @param \App\Models\Book $book
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Book $book, Category $category)

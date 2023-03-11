@@ -37,9 +37,10 @@ class GetBooksCoverImages implements ShouldQueue
             $this->delete();
         }
     }
+
     public function getImageUrlByISBN($ISBN){        
         $contents = $this->getImageFromUrl(2, $ISBN);
-        if(!$contents || strlen(!$contents) < 9000 ){
+        if(!$contents){
             $contents = $this->getImageFromUrl(1, $ISBN);       
         }
         Storage::disk('local')->put('public/'.$ISBN.'.jpg', $contents);
@@ -51,6 +52,7 @@ class GetBooksCoverImages implements ShouldQueue
             $url = "https://covers.openlibrary.org/b/isbn/".$isbn."-L.jpg";
         }else if($number == 2){
             $url = "https://pictures.abebooks.com/isbn/".$isbn."-us.jpg";
+            
         }
         return @file_get_contents($url);        
     }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Publisher;
+use App\Models\Publisher;
 use Illuminate\Http\Request;
 use App\Http\Requests\PublisherStoreRequest;
 use App\Http\Requests\PublisherUpdateRequest;
@@ -57,7 +57,7 @@ class PublisherController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Publisher $publisher
+     * @param \App\Models\Publisher $publisher
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Publisher $publisher)
@@ -69,7 +69,7 @@ class PublisherController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Publisher $publisher
+     * @param \App\Models\Publisher $publisher
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, Publisher $publisher)
@@ -81,7 +81,7 @@ class PublisherController extends Controller
 
     /**
      * @param \App\Http\Requests\PublisherUpdateRequest $request
-     * @param \App\Publisher $publisher
+     * @param \App\Models\Publisher $publisher
      * @return \Illuminate\Http\Response
      */
     public function update(
@@ -101,7 +101,7 @@ class PublisherController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Publisher $publisher
+     * @param \App\Models\Publisher $publisher
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Publisher $publisher)

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Shop;
 
-use App\Tag;
-use App\Book;
-use App\Level;
-use App\Publisher;
+use App\Models\Tag;
+use App\Models\Book;
+use App\Models\Level;
+use App\Models\Publisher;
 use Illuminate\Http\Request;
 use App\Http\Requests\BookStoreRequest;
 use Illuminate\Support\Facades\Storage;
@@ -71,7 +71,7 @@ class BookController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Book $book
+     * @param \App\Models\Book $book
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Book $book)
@@ -83,7 +83,7 @@ class BookController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Book $book
+     * @param \App\Models\Book $book
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, Book $book)
@@ -103,7 +103,7 @@ class BookController extends Controller
 
     /**
      * @param \App\Http\Requests\BookUpdateRequest $request
-     * @param \App\Book $book
+     * @param \App\Models\Book $book
      * @return \Illuminate\Http\Response
      */
     public function update(BookUpdateRequest $request, Book $book)
@@ -132,7 +132,7 @@ class BookController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Book $book
+     * @param \App\Models\Book $book
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Book $book)

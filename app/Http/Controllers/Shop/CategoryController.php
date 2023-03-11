@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Shop;
 
-use App\Category;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Http\Requests\CategoryUpdateRequest;
@@ -57,7 +57,7 @@ class CategoryController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Category $category
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Category $category)
@@ -69,7 +69,7 @@ class CategoryController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Category $category
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, Category $category)
@@ -81,7 +81,7 @@ class CategoryController extends Controller
 
     /**
      * @param \App\Http\Requests\CategoryUpdateRequest $request
-     * @param \App\Category $category
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function update(CategoryUpdateRequest $request, Category $category)
@@ -99,7 +99,7 @@ class CategoryController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Category $category
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Category $category)

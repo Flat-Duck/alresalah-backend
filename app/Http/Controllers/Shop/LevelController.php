@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Shop;
 
-use App\Level;
+use App\Models\Level;
 use Illuminate\Http\Request;
 use App\Http\Requests\LevelStoreRequest;
 use App\Http\Requests\LevelUpdateRequest;
@@ -57,7 +57,7 @@ class LevelController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Level $level
+     * @param \App\Models\Level $level
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Level $level)
@@ -69,7 +69,7 @@ class LevelController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Level $level
+     * @param \App\Models\Level $level
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, Level $level)
@@ -81,7 +81,7 @@ class LevelController extends Controller
 
     /**
      * @param \App\Http\Requests\LevelUpdateRequest $request
-     * @param \App\Level $level
+     * @param \App\Models\Level $level
      * @return \Illuminate\Http\Response
      */
     public function update(LevelUpdateRequest $request, Level $level)
@@ -99,7 +99,7 @@ class LevelController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Level $level
+     * @param \App\Models\Level $level
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Level $level)

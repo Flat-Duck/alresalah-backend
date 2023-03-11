@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Models\Book;
+use App\Tag;
+use App\Book;
+use App\Level;
+use App\Publisher;
 use Illuminate\Http\Request;
-use App\Http\Resources\BookResource;
-use App\Http\Controllers\Controller;
-use App\Http\Resources\BookCollection;
 use App\Http\Requests\BookStoreRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\BookUpdateRequest;
@@ -19,15 +19,30 @@ class BookController extends Controller
      */
     public function index(Request $request)
     {
-        // $this->authorize('view-any', Book::class);
-
+        //$this->authorize('view-any', Book::class);
+//dd($request->all());
         $search = $request->get('search', '');
 
         $books = Book::search($search)
             ->latest()
-            ->paginate();
+            ->paginate(5)
+            ->withQueryString();
 
-        return new BookCollection($books);
+        return view('home', compact('books', 'search'));
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Request $request)
+    {
+        //$this->authorize('create', Book::class);
+
+        $levels = Level::pluck('name', 'id');
+        $publishers = Publisher::pluck('Name', 'id');
+
+        return view('admin.books.create', compact('levels', 'publishers'));
     }
 
     /**
@@ -36,7 +51,7 @@ class BookController extends Controller
      */
     public function store(BookStoreRequest $request)
     {
-        $this->authorize('create', Book::class);
+        //$this->authorize('create', Book::class);
 
         $validated = $request->validated();
         if ($request->hasFile('cover_image')) {
@@ -47,32 +62,53 @@ class BookController extends Controller
 
         $book = Book::create($validated);
 
-        return new BookResource($book);
+        return redirect()
+            ->route('books.edit', $book)
+            ->withSuccess(__('crud.common.created'));
     }
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Book $book
+     * @param \App\Book $book
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Book $book)
     {
-        $this->authorize('view', $book);
+        //$this->authorize('view', $book);
 
-        return new BookResource($book);
+        return view('admin.books.show', compact('book'));
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Book $book
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Request $request, Book $book)
+    {
+        //$this->authorize('update', $book);
+
+        $levels = Level::pluck('name', 'id');
+        $publishers = Publisher::pluck('Name', 'id');
+
+        $tags = Tag::get();
+
+        return view(
+            'admin.books.edit',
+            compact('book', 'levels', 'publishers', 'tags')
+        );
     }
 
     /**
      * @param \App\Http\Requests\BookUpdateRequest $request
-     * @param \App\Models\Book $book
+     * @param \App\Book $book
      * @return \Illuminate\Http\Response
      */
     public function update(BookUpdateRequest $request, Book $book)
     {
-        $this->authorize('update', $book);
+        //$this->authorize('update', $book);
 
         $validated = $request->validated();
-
         if ($request->hasFile('cover_image')) {
             if ($book->cover_image) {
                 Storage::delete($book->cover_image);
@@ -83,19 +119,23 @@ class BookController extends Controller
                 ->store('public');
         }
 
+        $book->tags()->sync($request->tags);
+
         $book->update($validated);
 
-        return new BookResource($book);
+        return redirect()
+            ->route('books.edit', $book)
+            ->withSuccess(__('crud.common.saved'));
     }
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Book $book
+     * @param \App\Book $book
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Book $book)
     {
-        $this->authorize('delete', $book);
+        //$this->authorize('delete', $book);
 
         if ($book->cover_image) {
             Storage::delete($book->cover_image);
@@ -103,6 +143,8 @@ class BookController extends Controller
 
         $book->delete();
 
-        return response()->noContent();
+        return redirect()
+            ->route('books.index')
+            ->withSuccess(__('crud.common.removed'));
     }
 }

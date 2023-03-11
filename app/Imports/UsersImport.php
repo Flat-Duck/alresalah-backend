@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\User;
+use App\Models\User;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class UsersImport implements ToModel

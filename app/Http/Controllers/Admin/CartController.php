@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Cart;
-use App\User;
+use App\Models\Cart;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\CartStoreRequest;
 use App\Http\Requests\CartUpdateRequest;
@@ -60,7 +60,7 @@ class CartController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Cart $cart
+     * @param \App\Models\Cart $cart
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Cart $cart)
@@ -72,7 +72,7 @@ class CartController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Cart $cart
+     * @param \App\Models\Cart $cart
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, Cart $cart)
@@ -86,7 +86,7 @@ class CartController extends Controller
 
     /**
      * @param \App\Http\Requests\CartUpdateRequest $request
-     * @param \App\Cart $cart
+     * @param \App\Models\Cart $cart
      * @return \Illuminate\Http\Response
      */
     public function update(CartUpdateRequest $request, Cart $cart)
@@ -104,7 +104,7 @@ class CartController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Cart $cart
+     * @param \App\Models\Cart $cart
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Cart $cart)

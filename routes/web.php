@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController as AuthLoginController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Shop\BookController as ShopBookController;
 use App\Http\Controllers\Shop\UserController as ShopUserController;
 use Illuminate\Support\Facades\Route;
@@ -31,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // Admin routes
-Route::name('admin.')->prefix('admin')->namespace('Admin')->group(function () {
+Route::name('admin.')->prefix('admin')->group(function () {
     Route::namespace('Auth')->middleware('guest:admin')->group(function () {
         // Login
         Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');

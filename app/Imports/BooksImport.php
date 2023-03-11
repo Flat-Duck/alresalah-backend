@@ -2,28 +2,46 @@
 
 namespace App\Imports;
 
-use App\Book;
-use App\Level;
-use App\Publisher;
+use App\Jobs\GetBooksCoverImages;
+use App\Models\Book;
+use App\Models\Level;
+use App\Models\Publisher;
+
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\SkipsErrors;
 use Maatwebsite\Excel\Concerns\SkipsOnError;
-use Maatwebsite\Excel\Concerns\ToModel;
+
+use Carbon\Carbon;
+// use Illuminate\Database\Eloquent\Collection;
+
+
+
+// use Maatwebsite\Excel\Concerns\ToCollection;
+// use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+// use App\User;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Concerns\ToCollection;
+
 use Throwable;
 
-class BooksImport implements ToModel, WithHeadingRow, SkipsOnError
+class BooksImport implements ToCollection, WithHeadingRow, SkipsOnError
 {
     use Importable, SkipsErrors;
-    /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
-    public function model(array $row)
+    // /**
+    // * @param Model $model
+    // */
+    // public function model(array $row)
+    // {
+        
+    // }
+    public function collection(Collection $rows)
     {
-        return new Book(
-            [
+            
+        foreach ($rows as $row) {
+            $book = Book::create( 
+            [                
                 'level_id' => Level::firstOrCreate(['name' => $row['level']])->id,
                 'title' => $row['title'],
                 'ISBN' => $row['isbn'],
@@ -38,40 +56,12 @@ class BooksImport implements ToModel, WithHeadingRow, SkipsOnError
                 'featured' => $row['featured'],
                 'cover_image' => $row['isbn'].".jpg",
                 'on_sale' => $row['on_sale']
-                ]);
-    //    GetBooksCoverImages::dispatch($row[5]);
-    //    dd($book);
-    //     return $book;
-
-
-
-        
-    //     // if($row[3] == ""){
-    //     //     return null;
-    //     // }
-    //     $level = 1;
-    //     $book = new Book();
-    //     $book->level_id = Level::firstOrCreate(['Name' => $row['level']])->id;
-    //     $book->title = $row['title'];
-    //     $book->ISBN = $row['isbn'];
-    //     $book->edition = $row['edition'];
-    //     $book->format = $row['format'];
-    //     $book->publisher_id = Publisher::firstOrCreate(['Name' => $row['publisher']])->id;
-    //     $book->Author = $row['author'];
-    //     $book->quantity = $row['qty'];
-    //     $book->price = $row['price'];
-    //     $book->sale_price = $row['on_sale'];
-    //     $book->description = $row['description'];
-    //     $book->featured = $row['featured'];
-    //     $book->cover_image = $row[5].".jpg";
-    //     $book->on_sale = $row['on_sale'];
-    // //    GetBooksCoverImages::dispatch($row[5]);
-    // //    dd($book);
-    //     return $book;
-
+                             
+            ]);
+            
+           // dd($book);
+            GetBooksCoverImages::dispatch($book->ISBN);
+          
+        }
     }
-    // public function onError(Throwable $error)
-    // {
-    //     # code...
-    // }
 }

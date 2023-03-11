@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Level;
+use App\Models\Level;
 use Illuminate\Http\Request;
 use App\Http\Resources\BookResource;
 use App\Http\Controllers\Controller;
@@ -12,7 +12,7 @@ class LevelBooksController extends Controller
 {
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Level $level
+     * @param \App\Models\Level $level
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, Level $level)
@@ -32,7 +32,7 @@ class LevelBooksController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Level $level
+     * @param \App\Models\Level $level
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Level $level)

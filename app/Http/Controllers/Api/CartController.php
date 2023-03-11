@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Cart;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Http\Resources\CartResource;
 use App\Http\Controllers\Controller;
@@ -46,7 +46,7 @@ class CartController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Cart $cart
+     * @param \App\Models\Cart $cart
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Cart $cart)
@@ -58,7 +58,7 @@ class CartController extends Controller
 
     /**
      * @param \App\Http\Requests\CartUpdateRequest $request
-     * @param \App\Cart $cart
+     * @param \App\Models\Cart $cart
      * @return \Illuminate\Http\Response
      */
     public function update(CartUpdateRequest $request, Cart $cart)
@@ -74,7 +74,7 @@ class CartController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Cart $cart
+     * @param \App\Models\Cart $cart
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Cart $cart)

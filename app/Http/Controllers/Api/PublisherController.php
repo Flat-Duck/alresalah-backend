@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Publisher;
+use App\Models\Publisher;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PublisherResource;
@@ -46,7 +46,7 @@ class PublisherController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Publisher $publisher
+     * @param \App\Models\Publisher $publisher
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Publisher $publisher)
@@ -58,7 +58,7 @@ class PublisherController extends Controller
 
     /**
      * @param \App\Http\Requests\PublisherUpdateRequest $request
-     * @param \App\Publisher $publisher
+     * @param \App\Models\Publisher $publisher
      * @return \Illuminate\Http\Response
      */
     public function update(
@@ -76,7 +76,7 @@ class PublisherController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Publisher $publisher
+     * @param \App\Models\Publisher $publisher
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Publisher $publisher)

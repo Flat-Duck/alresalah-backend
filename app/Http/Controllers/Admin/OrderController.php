@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\User;
-use App\Order;
+use App\Models\User;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Requests\OrderStoreRequest;
 use App\Http\Requests\OrderUpdateRequest;
@@ -60,7 +60,7 @@ class OrderController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Order $order
+     * @param \App\Models\Order $order
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Order $order)
@@ -72,7 +72,7 @@ class OrderController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Order $order
+     * @param \App\Models\Order $order
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, Order $order)
@@ -86,7 +86,7 @@ class OrderController extends Controller
 
     /**
      * @param \App\Http\Requests\OrderUpdateRequest $request
-     * @param \App\Order $order
+     * @param \App\Models\Order $order
      * @return \Illuminate\Http\Response
      */
     public function update(OrderUpdateRequest $request, Order $order)
@@ -104,7 +104,7 @@ class OrderController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Order $order
+     * @param \App\Models\Order $order
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Order $order)

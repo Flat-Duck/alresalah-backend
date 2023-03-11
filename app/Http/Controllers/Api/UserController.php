@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Resources\UserResource;
 use App\Http\Controllers\Controller;
@@ -51,7 +51,7 @@ class UserController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\User $user
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, User $user)
@@ -63,7 +63,7 @@ class UserController extends Controller
 
     /**
      * @param \App\Http\Requests\UserUpdateRequest $request
-     * @param \App\User $user
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function update(UserUpdateRequest $request, User $user)
@@ -87,7 +87,7 @@ class UserController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\User $user
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, User $user)
