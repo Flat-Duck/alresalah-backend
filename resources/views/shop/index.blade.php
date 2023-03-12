@@ -12,8 +12,8 @@
                             
                             <input id="indexSearch" name="search" placeholder="Search title, ISBN, author ... etc" value="{{ $search ?? '' }}" type="text" class="text search-input" spellcheck="false" data-ms-editor="true" autocomplete="off">
                             <a class="search-link" href="#"><i class="ri-search-line"></i></a>
-                         </form>
-                         <button type="submit" class="btn btn-primary search-data ml-2">Search</button>
+                            <button type="submit" class="btn btn-primary search-data ml-2">Search</button>
+                           </form>
                       </div>
                    </li>
                 </ul>
