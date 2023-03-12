@@ -65,8 +65,8 @@
                       <div class="text-primary mb-4">Publisher: <span class="text-body">{{$book->publisher->Name}}</span></div>
                       <div class="text-primary mb-4">ISBN: <span class="text-body">{{$book->ISBN}}</span></div> 
                       <div class="mb-4 d-flex align-items-center">
-                        <a href="https://wa.me/00218928586493/?text=Hello" class="btn btn-primary view-more mr-2"> What's App</a>                                                 
-                        <a href="tel:0913100774"  class="btn btn-info view-more mr-2">Phone</a>
+                        <a href="https://wa.me/+218928586493/?text=Hello" class="btn btn-primary view-more mr-2"> What's App <i class="fa fa-whatsapp"></i></a>                                                 
+                        <a href="tel:0913100774"  class="btn btn-info view-more mr-2">Phone <i class="fa fa-phone"></i></a>
                       </div>
                       <div class="mb-3">
                          <a href="#" class="text-body text-center"><span class="avatar-30 rounded-circle bg-primary d-inline-block mr-2"><i class="ri-heart-fill"></i></span><span>Add to Wishlist</span></a>
