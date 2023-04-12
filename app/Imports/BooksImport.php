@@ -4,6 +4,7 @@ namespace App\Imports;
 
 use App\Jobs\GetBooksCoverImages;
 use App\Models\Book;
+use App\Models\Category;
 use App\Models\Level;
 use App\Models\Publisher;
 
@@ -34,34 +35,39 @@ class BooksImport implements ToCollection, WithHeadingRow, SkipsOnError
     // */
     // public function model(array $row)
     // {
-        
+
     // }
     public function collection(Collection $rows)
     {
-            
+
         foreach ($rows as $row) {
-            $book = Book::create( 
-            [                
-                'level_id' => Level::firstOrCreate(['name' => $row['level']])->id,
+           // dd($row);
+            $book = Book::create(
+            [
                 'title' => $row['title'],
                 'ISBN' => $row['isbn'],
-                'edition' => $row['edition'],
                 'format' => $row['format'],
+                'description' => $row['description'],
+                'edition' => $row['edition'],
+                'level_id' => Level::firstOrCreate(['name' => $row['level']])->id,
                 'publisher_id' => Publisher::firstOrCreate(['Name' => $row['publisher']])->id,
                 'Author' => $row['author'],
-                'quantity' => $row['qty'],
+                'quantity' => $row['quantity'],
                 'price' => $row['price'],
-                'sale_price' => $row['on_sale'],
-                'description' => $row['discription'],
+                'sale_price' => $row['sale_price'],
+                'on_sale' => $row['on_sale'],
                 'featured' => $row['featured'],
                 'cover_image' => $row['isbn'].".jpg",
-                'on_sale' => $row['on_sale']
-                             
+
             ]);
-            
+            $main = Category::firstOrCreate(['name' => $row['main_categoty']]);
+            $sub_1 = Category::firstOrCreate(['parent_id' => $main->id, 'name' => $row['sub_category_1']]);
+            $sub_2 = Category::firstOrCreate(['parent_id' => $main->id, 'name' => $row['sub_category_2']]);
+            $book->categories()->attach([$main->id,$sub_1->id,$sub_2->id]);
+
            // dd($book);
             GetBooksCoverImages::dispatch($book->ISBN);
-          
+
         }
     }
 }
